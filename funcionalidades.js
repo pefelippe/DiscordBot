@@ -1,5 +1,9 @@
 const links = require('./links.json')
 
+const btc = require('btc-value')
+bot.login(config.token)
+btc.setApiKey(config.btc_api_key)
+
 const init = () => console.log("Bot Iniciado")
 
 function mensagem(bot, message){
@@ -44,6 +48,13 @@ function mensagem(bot, message){
 		?limpar
 										`;
 		message.channel.send(resposta);							
+	}
+
+	if (message.content === '?hoje'){
+
+		btcValue({currencyCode: 'BRL'}).then(value => {
+			console.log(' BRL: ' + value);
+	});
 	}
 
 	// Limpar Canal

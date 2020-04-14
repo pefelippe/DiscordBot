@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "btc-value": "^3.0.1",
     "discord": "^0.8.2",
     "discord.js": "^12.1.1"
   },
