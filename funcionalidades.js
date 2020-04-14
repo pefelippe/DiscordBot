@@ -1,12 +1,10 @@
+const cotacao = require('./cotacoes')
 const links = require('./links.json')
-
-const btc = require('btc-value')
-bot.login(config.token)
-btc.setApiKey(config.btc_api_key)
+const bot = require('./bot')
 
 const init = () => console.log("Bot Iniciado")
 
-function mensagem(bot, message){
+function mensagem(message){
   if(message.author.equals(bot.user)) return; // evitar loops
 
   // Interações
@@ -34,6 +32,7 @@ function mensagem(bot, message){
 	// 	message.channel.send("")
   // }
 	
+	// pegar respostas do json
 	responseObject = links;
 	if(responseObject[message.content]){
 		message.channel.send(responseObject[message.content])
@@ -46,15 +45,16 @@ function mensagem(bot, message){
 		?disciplinas
 		?comandos
 		?limpar
-										`;
+		`;
 		message.channel.send(resposta);							
 	}
 
 	if (message.content === '?hoje'){
 
-		btcValue({currencyCode: 'BRL'}).then(value => {
-			console.log(' BRL: ' + value);
-	});
+		message.channel.send("Bitcoin")
+		message.channel.send(' BRL: ' + cotacao.bitcoin);
+		message.channel.send("Dolar")
+		return
 	}
 
 	// Limpar Canal

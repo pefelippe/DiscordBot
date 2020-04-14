@@ -7,4 +7,6 @@ const bot = new Discord.Client()
 bot.login(config.token)
 
 bot.on("ready", funcionalidades.init)
-bot.on("message", async message => funcionalidades.mensagem(bot, message))
+bot.on("message", async message => funcionalidades.mensagem(message))
+
+exports.bot = bot 
