@@ -1,3 +1,4 @@
+const links = require('./links.json')
 
 const init = () => console.log("Bot Iniciado")
 
@@ -29,12 +30,18 @@ function mensagem(bot, message){
 	// 	message.channel.send("")
   // }
 	
+	responseObject = links;
+	if(responseObject[message.content]){
+		message.channel.send(responseObject[message.content])
+	}
+
 	if (message.content.startsWith("?comandos")){
 		var resposta = `Comandos disponíveis: 
-										?ola
-										?lattes
-										?disciplinas
-										?comandos
+		?ola
+		?lattes
+		?disciplinas
+		?comandos
+		?limpar
 										`;
 		message.channel.send(resposta);							
 	}
