@@ -28,7 +28,17 @@ function mensagem(bot, message){
   // if(message.content.startsWith('lucas souza')){
 	// 	message.channel.send("")
   // }
-  
+	
+	if (message.content.startsWith("?comandos")){
+		var resposta = `Comandos disponíveis: 
+										?ola
+										?lattes
+										?disciplinas
+										?comandos
+										`;
+		message.channel.send(resposta);							
+	}
+
 	// Limpar Canal
 	if (message.content.startsWith("?limpar")){
 		msgDel = 100;
