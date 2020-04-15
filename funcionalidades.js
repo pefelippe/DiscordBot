@@ -46,24 +46,28 @@ function mensagem(message){
 		?comandos
 		?limpar
 		`;
+
 		message.channel.send(resposta);							
 	}
 
 	if (message.content === '?hoje'){
 
 		message.channel.send("Bitcoin")
-		message.channel.send(' BRL: ' + cotacao.bitcoin);
+		message.channel.send('BRL: ' + cotacao.bitcoin);
 		message.channel.send("Dolar")
-		return
+	
 	}
 
 	// Limpar Canal
-	if (message.content.startsWith("?limpar")){
-		msgDel = 100;
-		let numberMessages = parseInt(msgDel)
-		message.channel.messages.fetch({limit: numberMessages}).then(messages => message.channel.bulkDelete(messages))
+	if (message.content === ("?limpar")){
+		limpar(message)
 	}
 
+}
+
+function limpar(message){
+	let numberMessages = parseInt(100)
+	message.channel.messages.fetch({limit: numberMessages}).then(messages => message.channel.bulkDelete(messages))
 }
 
 exports.init = init
