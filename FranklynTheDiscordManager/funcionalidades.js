@@ -1,11 +1,13 @@
+
 const cotacao = require('./cotacoes')
-const links = require('./links.json')
+
 const bot = require('./bot')
 
 const init = () => console.log("Bot Iniciado")
 
-function mensagem(message){
-  if(message.author.equals(bot.user)) return; // evitar loops
+function mensagem(message) {
+	
+  if(message.author.equals(bot.user)) return; 
 
   // Interações
 	if (message.content.startsWith('dani')) {
@@ -32,13 +34,13 @@ function mensagem(message){
 	// 	message.channel.send("")
   // }
 	
-	// pegar respostas do json
+	/* pegar respostas do json
 	responseObject = links;
-	if(responseObject[message.content]){
+	if(responseObject[message.content]) {
 		message.channel.send(responseObject[message.content])
-	}
+	}*/
 
-	if (message.content.startsWith("?comandos")){
+	if (message.content.startsWith("comandos?")) {
 		var resposta = `Comandos disponíveis: 
 		?ola
 		?lattes
@@ -50,25 +52,23 @@ function mensagem(message){
 		message.channel.send(resposta);							
 	}
 
-	if (message.content === '?hoje'){
+	if (message.content === 'cotacao?'){
 
-		message.channel.send("Bitcoin")
-		message.channel.send('BRL: ' + cotacao.bitcoin);
-		message.channel.send("Dolar")
-	
+		message.channel.send("Cotação do Dólar")
+		message.channel.send('BRL: ' + cotacao.dolar)
 	}
 
-	// Limpar Canal
-	if (message.content === ("?limpar")){
+	if (message.content === ("limpar chat!")) {
 		limpar(message)
 	}
 
 }
 
 function limpar(message){
-	let numberMessages = parseInt(100)
+	let numberMessages = parseInt(1000)
 	message.channel.messages.fetch({limit: numberMessages}).then(messages => message.channel.bulkDelete(messages))
 }
+
 
 exports.init = init
 exports.mensagem = mensagem

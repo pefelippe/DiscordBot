@@ -1,13 +1,17 @@
-const config = require('./configs.json')
-const btc = require('btc-value')
+const links = require('./links.json')
 
-btc.setApiKey(config.btc_api_key)
+var request = require('request');
 
-var bitcoin = btc({currencyCode: 'BRL'})
+const apiAdress = links["cot-api-url"]
 
+//fetch (apiAdress).then(response => response.json)
+
+function getDolar(){
+    return response
+}
 
 // dolar
 //link https://economia.awesomeapi.com.br/all/USD-BRL
 
 
-exports.bitcoin = bitcoin
+exports.dolar = getDolar()
