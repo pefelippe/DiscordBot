@@ -1,17 +1,24 @@
 const links = require('./links.json')
 
-var request = require('request');
+const axios = require('axios')
 
 const apiAdress = links["cot-api-url"]
 
-//fetch (apiAdress).then(response => response.json)
-
-function getDolar(){
-    return response
+var data
+void async function(){
+    data = await axios.get(apiAdress)
+                .then(e => e.data.USD)
+                .catch(e => console.log(e))
+    console.log(data)
 }
 
-// dolar
-//link https://economia.awesomeapi.com.br/all/USD-BRL
 
+void function getDolar(){
+    var dolar;
 
-exports.dolar = getDolar()
+    console.log(data)
+    //console.log(dolar)
+    return data
+}
+
+//exports.getDolar = getDolar()

@@ -6,7 +6,7 @@ const config = require('./config.js')
 
 const funcionalidades = require('./funcionalidades')
 
-bot.login(config.token)
+bot.login(config.token())
 
 bot.on("ready", funcionalidades.init)
 
