@@ -36,6 +36,9 @@ async function mensagem(message) {
 		message.channel.send("Comandos Disponíveis:")
 		message.channel.send(msg.comandos);
 	}
+	if (message.content.startsWith("trabalho")) {
+		message.channel.send(msg.trabalho_final);
+	}
 
 	if (message.content === '-moedas') {
 		const cotacaoDolar = await cotacao.getDolar();
