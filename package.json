@@ -16,9 +16,7 @@
     "discord": "^0.8.2",
     "discord.js": "^12.1.1",
     "getenv": "^1.0.0",
-    "request": "^2.88.2"
-  },
-  "devDependencies": {
+    "request": "^2.88.2",
     "dotenv": "^8.2.0"
   }
 }
