@@ -1,15 +1,17 @@
-const Discord = require('discord.js')
+const Discord = require("discord.js");
 
-const bot = new Discord.Client()
+const bot = new Discord.Client();
 
-const config = require('./config.js')
+const config = require("./config.js");
 
-const funcionalidades = require('./funcionalidades')
+const funcionalidades = require("./funcionalidades");
 
-bot.login(config.token())
+bot.login(config.token);
 
-bot.on("ready", funcionalidades.init)
+bot.on("ready", funcionalidades.init);
 
-bot.on("message", async message => funcionalidades.mensagem(message))
+bot.on("message", async (message) => funcionalidades.mensagem(message));
 
-exports.bot = bot
+bot.on("message", async (comandos) => funcionalidades.comandos(comandos));
+
+exports.bot = bot;
